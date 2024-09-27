@@ -69,7 +69,7 @@ public class Startup
 
         app.UseSwaggerUI(c => {
              c.SwaggerEndpoint("/swagger/v1/swagger.json", "Shops In Campus API V1");
-             c.RoutePrefix = string.Empty; // Set to empty string to serve the UI at the root
+             c.RoutePrefix = "swagger"; // Set to empty string to serve the UI at the root
         });
         app.UseAuthorization();
         app.UseEndpoints(endPoints => {endPoints.MapControllers();});
