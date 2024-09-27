@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using shopsincampus.business.Interfaces;
 using shopsincampus.data.Interfaces;
+using shopsincampus.data.Models;
 
 public class ShopManager : IShopManager
 {
@@ -13,7 +14,7 @@ public class ShopManager : IShopManager
     public ShopManager(IShopRepository shopRepository) {
         _shopRepository = shopRepository;
     }
-    public async Task<List<JObject>> FetchAllShopsByCollegeId(string collegeId)
+    public async Task<List<Shop>> FetchAllShopsByCollegeId(string collegeId)
     {
         return await _shopRepository.FetchAllShopsByCollegeId(collegeId);;
     }
