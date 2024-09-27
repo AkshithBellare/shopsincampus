@@ -5,5 +5,6 @@ namespace shopsincampus.data.Repositories;
 
 public class AuthRepository : IAuthRepository
 {
-
+    private readonly IAuthRepository authRepository;
+    
 }
