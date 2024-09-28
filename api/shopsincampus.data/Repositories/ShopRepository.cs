@@ -13,6 +13,13 @@ public class ShopRepository : IShopRepository
     public ShopRepository(IDomainModelRepository<Shop> domainModelRepository) {
         _domainModeRepository = domainModelRepository;
     }
+
+    public async Task<Shop> CreateShop(Shop newShop)
+    {
+        await _domainModeRepository.InsertOneAsync(newShop, "shops");
+        return newShop;
+    }
+
     public Task<List<Shop>> FetchAllShopsByCollegeId(string collegeId, string campusId)
     {
         var filter = Builders<Shop>.Filter.And(

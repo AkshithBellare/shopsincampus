@@ -20,10 +20,18 @@ public class Startup
         services.AddScoped<IMongoDatabase>(sp => 
             sp.GetRequiredService<IMongoClient>().GetDatabase("shopsincampus"));
         services.AddScoped<IDomainModelRepository<Shop>, DomainModelRepository<Shop>>();
+        services.AddScoped<IDomainModelRepository<College>, DomainModelRepository<College>>();
+        services.AddScoped<IDomainModelRepository<Campus>, DomainModelRepository<Campus>>();
+
         services.AddScoped<IShopRepository, ShopRepository>();
         services.AddScoped<IAuthRepository, AuthRepository>();
+        services.AddScoped<ICollegeRepository, CollegeRepository>();
+        services.AddScoped<ICampusRepository, CampusRepository>();
+
         services.AddScoped<IShopManager, ShopManager>();
         services.AddScoped<IAuthManager, AuthManager>();
+        services.AddScoped<ICollegeManager, CollegeManager>();
+        services.AddScoped<ICampusManager, CampusManager>();
 
         services.AddAuthorization();
 

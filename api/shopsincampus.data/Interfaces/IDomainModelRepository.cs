@@ -15,7 +15,7 @@ public interface IDomainModelRepository<T> where T : class
 
     // Task UpdateOneAsync(string id, UpdateDefinition<JObject> update,string collectionName);
 
-    // Task InsertOneAsync(JObject document,string collectionName);
+    Task InsertOneAsync(T document,string collectionName);
 
     // Task DeleteOneAsync(string id,string collectionName);
 

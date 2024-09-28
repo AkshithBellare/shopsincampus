@@ -8,7 +8,7 @@ namespace shopsincampus.data.Models;
 public class Shop
 {
     [BsonId]
-    public ObjectId Id {get;set;}
+    public string? Id {get;set;}
     
     [BsonElement("collegeId")] 
     public string? CollegeId { get; set; }
@@ -17,6 +17,8 @@ public class Shop
 
     public string? CampusId {get;set;}
 
+    [BsonElement("basicDetails")] 
+
     public BasicDetails? BasicDetails { get; set; }
 
     [BsonElement("shopStatus")] 
@@ -24,9 +26,13 @@ public class Shop
 }
 
 public class BasicDetails {
+    [BsonElement("name")] 
+
     public string? Name { get; set; }
 
-    public string? Descriptions {get; set;}
+    [BsonElement("description")] 
+
+    public string? Description {get; set;}
 }
 
 public class ShopStatus {

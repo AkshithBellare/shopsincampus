@@ -9,4 +9,6 @@ namespace shopsincampus.data.Interfaces;
 public interface IShopRepository
 {
     Task<List<Shop>> FetchAllShopsByCollegeId(string collegeId, string campusId);
+
+    Task<Shop> CreateShop(Shop newShop);
 }

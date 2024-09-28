@@ -17,7 +17,7 @@ namespace shopsincampus.api.Controllers
         }
 
         [HttpPost]
-        [Route("FetchAllShopsByCollegeId")]
+        [Route("FetchAllShopsByCollegeAndCampusId")]
         public async Task<List<Shop>> FetchAllShopsByCollegeId(FetchShopsModel parameters) {
             var response = new List<Shop>();
             var campusId = parameters.campusId;
@@ -26,6 +26,14 @@ namespace shopsincampus.api.Controllers
                 return response;
             }
             return await _shopManager.FetchAllShopsByCollegeId(collegeId, campusId);
+        }
+
+
+        [HttpPost]
+        [Route("CreateShop")]
+        public async Task<Shop> CreateShop(Shop newShop) {
+            newShop.Id = Guid.NewGuid().ToString();
+            return await _shopManager.CreateShop(newShop);
         }
     }
 }

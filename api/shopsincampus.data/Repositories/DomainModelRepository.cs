@@ -55,11 +55,11 @@ public class DomainModelRepository<T> : IDomainModelRepository<T> where T : clas
     //     await collection.UpdateOneAsync(filter, update);
     // }
 
-    // public async Task InsertOneAsync(JObject document, string collectionName)
-    // {
-    //     var collection = GetCollection(collectionName);
-    //     await collection.InsertOneAsync(document);
-    // }
+    public async Task InsertOneAsync(T document, string collectionName)
+    {
+        var collection = GetCollection(collectionName);
+        await collection.InsertOneAsync(document);
+    }
 
     // public async Task DeleteOneAsync(string id, string collectionName)
     // {
