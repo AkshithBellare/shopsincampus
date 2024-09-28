@@ -57,7 +57,7 @@ public class Startup
     services.AddCors(options =>
     {
         options.AddPolicy("AllowSpecificOrigin",
-            builder => builder.WithOrigins("https://shopsincampus.netlify.app/","http://localhost:3000") // Replace with your React app's URL
+            builder => builder.WithOrigins("https://shopsincampus.netlify.app","http://localhost:3000") // Replace with your React app's URL
                               .AllowAnyMethod()
                               .AllowAnyHeader());
     });
