@@ -13,8 +13,13 @@ public class Shop
     [BsonElement("collegeId")] 
     public string? CollegeId { get; set; }
 
+    [BsonElement("campusId")] 
+
+    public string? CampusId {get;set;}
+
     public BasicDetails? BasicDetails { get; set; }
 
+    [BsonElement("shopStatus")] 
     public ShopStatus? ShopStatus {get; set;}
 }
 
@@ -25,7 +30,10 @@ public class BasicDetails {
 }
 
 public class ShopStatus {
+    [BsonElement("code")] 
+
     public int? Code { get; set; }
 
+    [BsonElement("name")]
     public string? Name {get;set;}
 }

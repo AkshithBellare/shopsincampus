@@ -13,9 +13,12 @@ public class ShopRepository : IShopRepository
     public ShopRepository(IDomainModelRepository<Shop> domainModelRepository) {
         _domainModeRepository = domainModelRepository;
     }
-    public Task<List<Shop>> FetchAllShopsByCollegeId(string collegeId)
+    public Task<List<Shop>> FetchAllShopsByCollegeId(string collegeId, string campusId)
     {
-        var filter = Builders<Shop>.Filter.Eq("collegeId", collegeId);
+        var filter = Builders<Shop>.Filter.And(
+            Builders<Shop>.Filter.Eq("collegeId", collegeId),
+            Builders<Shop>.Filter.Eq("campusId", campusId)
+        );        
         return _domainModeRepository.FindAllAsync(filter, "shops");
     }
 }

@@ -16,10 +16,16 @@ namespace shopsincampus.api.Controllers
             _shopManager = shopManager;
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("FetchAllShopsByCollegeId")]
-        public async Task<List<Shop>> FetchAllShopsByCollegeId(string collegeId) {
-            return await _shopManager.FetchAllShopsByCollegeId(collegeId);
+        public async Task<List<Shop>> FetchAllShopsByCollegeId(FetchShopsModel parameters) {
+            var response = new List<Shop>();
+            var campusId = parameters.campusId;
+            var collegeId = parameters.collegeId;
+            if(string.IsNullOrEmpty(campusId) || string.IsNullOrEmpty(collegeId)) {
+                return response;
+            }
+            return await _shopManager.FetchAllShopsByCollegeId(collegeId, campusId);
         }
     }
 }

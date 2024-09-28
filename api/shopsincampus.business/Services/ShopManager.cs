@@ -14,8 +14,8 @@ public class ShopManager : IShopManager
     public ShopManager(IShopRepository shopRepository) {
         _shopRepository = shopRepository;
     }
-    public async Task<List<Shop>> FetchAllShopsByCollegeId(string collegeId)
+    public async Task<List<Shop>> FetchAllShopsByCollegeId(string collegeId, string campusId)
     {
-        return await _shopRepository.FetchAllShopsByCollegeId(collegeId);;
+        return await _shopRepository.FetchAllShopsByCollegeId(collegeId, campusId);;
     }
 }
