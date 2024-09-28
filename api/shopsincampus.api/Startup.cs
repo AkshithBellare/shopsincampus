@@ -54,6 +54,13 @@ public class Startup
         };
     });
 
+    services.AddCors(options =>
+    {
+        options.AddPolicy("AllowSpecificOrigin",
+            builder => builder.WithOrigins("https://shopsincampus.netlify.app/","http://localhost:3000") // Replace with your React app's URL
+                              .AllowAnyMethod()
+                              .AllowAnyHeader());
+    });
         services.AddControllers();
 
         services.AddSwaggerGen(c => {
@@ -79,6 +86,9 @@ public class Startup
              c.SwaggerEndpoint("/swagger/v1/swagger.json", "Shops In Campus API V1");
              c.RoutePrefix = "swagger"; // Set to empty string to serve the UI at the root
         });
+
+        app.UseCors("AllowSpecificOrigin");
+
         app.UseAuthorization();
         app.UseEndpoints(endPoints => {endPoints.MapControllers();});
     }
