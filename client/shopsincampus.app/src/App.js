@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import CampusCollegeShops from './components/CollegeCampusShops';
 import './App.css';
 
