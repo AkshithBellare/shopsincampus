@@ -1,0 +1,118 @@
+/* General page styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #4a4a4a;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 300px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    appearance: none;
+    background-color: #fff;
+}
+
+select:disabled {
+    background-color: #f0f0f0;
+    border-color: #ddd;
+}
+
+select option {
+    padding: 10px;
+}
+
+/* Shop list styles */
+h2 {
+    font-size: 24px;
+    margin-top: 30px;
+    text-align: center;
+    color: #555;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    background-color: #fff;
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+li strong {
+    font-size: 18px;
+    color: #333;
+}
+
+p {
+    margin: 5px 0;
+}
+
+/* Status pill styling */
+.status-pill {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.status-pill.open {
+    background-color: #28a745;
+}
+
+.status-pill.closed {
+    background-color: #dc3545;
+}
+
+/* Flex container for select elements */
+.select-container {
+    display: block;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .select-container {
+        display: flex;
+        justify-content: space-between;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    select {
+        width: 48%;
+    }
+}
+
+/* Shop list layout */
+.shop-list-container {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 40px;
+}

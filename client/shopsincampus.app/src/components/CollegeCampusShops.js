@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../styles/CollegeCampusShops.css'; // Link to the CSS file
 
 const CampusCollegeShops = () => {
     const [campuses, setCampuses] = useState([]);
@@ -25,7 +26,7 @@ const CampusCollegeShops = () => {
         fetchCampuses();
     }, [selectedCollege]);
 
-    // Fetch colleges based on selected campus
+    // Fetch colleges
     useEffect(() => {
         const fetchColleges = async () => {
             try {
@@ -40,7 +41,7 @@ const CampusCollegeShops = () => {
         fetchColleges();
     }, []);
 
-    // Fetch shops based on selected college and campus
+    // Fetch shops
     useEffect(() => {
         const fetchShops = async () => {
             if (selectedCampus && selectedCollege) {
@@ -53,7 +54,6 @@ const CampusCollegeShops = () => {
                         body: JSON.stringify({
                             campusId: selectedCampus,
                             collegeId: selectedCollege,
-                            // Add any additional data you want to pass here
                         }),
                     });
 
@@ -67,11 +67,12 @@ const CampusCollegeShops = () => {
 
         fetchShops();
     }, [selectedCampus, selectedCollege]);
+
     return (
         <div>
             <h1>Select College and Campus</h1>
             <div>
-                <label htmlFor="college">College:</label>
+                <label htmlFor="college"></label>
                 <select id="college" value={selectedCollege} onChange={(e) => setSelectedCollege(e.target.value)}>
                     <option value="">Select College</option>
                     {colleges.map((college) => (
@@ -80,7 +81,7 @@ const CampusCollegeShops = () => {
                 </select>
             </div>
             <div>
-                <label htmlFor="campus">Campus:</label>
+                <label htmlFor="campus"></label>
                 <select id="campus" value={selectedCampus} onChange={(e) => setSelectedCampus(e.target.value)} disabled={!selectedCollege}>
                     <option value="">Select Campus</option>
                     {campuses.map((campus) => (
@@ -94,8 +95,12 @@ const CampusCollegeShops = () => {
                     {shops.map((shop) => (
                         <li key={shop.id}>
                             <strong>{shop.basicDetails.name}</strong>
-                            <p>Status: {shop.shopStatus.name}</p>
-                            <p>Location: {shop.location}</p>
+                            <p>
+                                <span className={`status-pill ${shop.shopStatus.name.toLowerCase()}`}>
+                                    {shop.shopStatus.name}
+                                </span>
+                            </p>
+                            <p>{shop.basicDetails.description}</p>
                         </li>
                     ))}
                 </ul>
